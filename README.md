@@ -4,6 +4,24 @@ Run Bash in [AWS Lambda](https://aws.amazon.com/lambda/) via [Layers](https://do
 
 See the [How To](#how-to) section to understand how to use these layers. Also see the [example-basic.sh](examples/example-basic.sh) file for an example of how to write a Bash script compatible with this Layer.
 
+## Forked Repository Notes
+
+This is a fork of
+[gkrizek/bash-lambda-layer](https://github.com/gkrizek/bash-lambda-layer) and
+adds the following binaries along with their required shared libraries:
+
+- PG Dump @ v10.4
+- PSQL @ v10.4
+
+All other instructions from this README and the original project still apply.
+
+Use `make build` to get started and publish your layer with the included `publish.sh` script.
+
+
+Signed,
+
+[The maintainer](https://github.com/chroto)
+
 ### ARN
 
 ```
@@ -154,6 +172,7 @@ Some executables are able to run by themselves and some require additional depen
 
 You can either add the executable from an Amazon Linux AMI or from the [lambci/lambda:build-python3.6](https://github.com/lambci/docker-lambda) Docker image.
 
+
 _Disclaimer: I usually don't add in executables from pull requests for security reasons. If you would like to see an executable in this layer make an issue and I'll try to add it._
 
 ### Included Executables
@@ -162,6 +181,8 @@ _Disclaimer: I usually don't add in executables from pull requests for security 
 - `$ bc`
 - `$ git`
 - `$ jq`
+- `$ pg_dump`
+- `$ psql`
 - `$ rsync`
 - `$ scp`
 - `$ sftp`
